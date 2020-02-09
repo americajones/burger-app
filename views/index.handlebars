@@ -1,0 +1,41 @@
+<h1>Burgtopia!</h1>
+
+<h2>Make and eat burgers to your heart's content</h2>
+
+<img src= "http://clipart-library.com/data_images/149337.jpg">
+
+<form class="create-form">
+<h4>Make a Burger</h4>
+
+  <div class="form-group">
+    <label for="burg">Burger Name:</label>
+    <input type="text" id="burg" name="name">
+  <button type="submit">Add Burger</button>
+  </div>
+
+</form>
+<div class = "burg-row">
+<div class = "notBeenAte">
+  <h4>Burgers left uneaten:</h4>
+<ul>
+  {{#each burgers}}
+    {{#unless eaten}}
+     {{> burgers/burger-block eaten=false}}
+    {{/unless}}
+  {{/each}}
+</ul>
+</div>
+
+<div class= "beenAte">
+<h4>Burgers that been ate:</h4>
+
+<ul>
+  {{#each burgers}}
+    {{#if eaten}}
+  {{> burgers/burger-block eaten=true}}
+    {{/if}}
+  {{/each}}
+</ul>
+</div>
+</div>
+
